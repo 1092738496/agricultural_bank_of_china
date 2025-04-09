@@ -1,5 +1,6 @@
 import 'package:agricultural_bank_of_china/page4.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class page3_widget extends StatelessWidget {
   const page3_widget({super.key});
@@ -51,7 +52,7 @@ class homed extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: height * 0.332,
+            height: 400.h,
             color: Colors.white,
             child: ListView(
               children: [
@@ -60,7 +61,7 @@ class homed extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: 30, bottom: 20),
-                        width: 80,
+                        width: 100.w,
                         child: Image(
                           image: AssetImage("images/img/2.png"),
                           fit: BoxFit.cover,
@@ -73,8 +74,10 @@ class homed extends StatelessWidget {
                     ],
                   )
                 ),
-                SizedBox(height: 20,),
-                Row(
+                
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
@@ -115,6 +118,7 @@ class homed extends StatelessWidget {
                     ),
                   ],
                 ),
+                ),
 
                 Container(
                   margin: EdgeInsets.only(top: 20),
@@ -126,7 +130,7 @@ class homed extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: width * 0.12, top: 10),
+                        margin: EdgeInsets.only(left: 0.12.sw, top: 10),
                         child: Row(
                           children: [
                             ImageIcon(
