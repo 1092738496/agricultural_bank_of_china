@@ -56,6 +56,10 @@ class homed extends StatelessWidget {
               },
               child: Container(
                 margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white, // 可选：背景色
+                  borderRadius: BorderRadius.circular(8), // 可选：圆角
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -130,9 +134,9 @@ class homed extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Image(image: AssetImage("images/icon4/i.png"),width: 18,)
+                      Image(image: AssetImage("images/icon4/i.png"), width: 18),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
