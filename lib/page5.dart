@@ -140,6 +140,19 @@ class homed extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("未还本金", style: TextStyle(fontSize: 16)),
+                Text(
+                  "0元",
+                  style: TextStyle(fontSize: 16, color: Colors.black54),
+                ),
+              ],
+            ),
+          ),
 
           Container(
             margin: EdgeInsets.only(top: 10, left: 20, right: 20),
