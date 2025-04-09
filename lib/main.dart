@@ -5,6 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+class NoBouncingScrollBehavior extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    // 使用 Android 的 Clamping 行为来禁止 iOS 回弹
+    return const ClampingScrollPhysics();
+  }
+}
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -21,15 +29,6 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-  /* MaterialApp(
-      home: home(),
-      theme: ThemeData(
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        
-      ),
-      
-    ); */
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -38,14 +37,19 @@ class App extends StatelessWidget {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: home(),
-          theme: ThemeData(
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
+        return ScrollConfiguration(
+          behavior: NoBouncingScrollBehavior(),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: home(),
+            theme: ThemeData(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+            ),
           ),
         );
+
+        /*  */
       },
     );
   }
@@ -62,7 +66,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: homePageWidget(),),
+      body: homePageWidget(),
       bottomNavigationBar: MediaQuery.removePadding(
         context: context,
         removeBottom: true,
