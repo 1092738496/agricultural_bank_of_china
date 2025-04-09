@@ -38,9 +38,6 @@ class App extends StatelessWidget {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
-        print("``````````宽高``````````````");
-        print(1.sw);
-        print(1.sh);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           home: home(),
@@ -65,7 +62,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: homePageWidget(),
+      body: SafeArea(child: homePageWidget(),),
       bottomNavigationBar: MediaQuery.removePadding(
         context: context,
         removeBottom: true,
