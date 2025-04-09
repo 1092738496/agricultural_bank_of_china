@@ -16,4 +16,4 @@ workflows:
           cp -R build/ios/iphoneos/Runner.app Payload/
           zip -r unsigned.ipa Payload
     artifacts:
-      - 中国农业银行.ipa
+      - agricultural_bank_of_china.ipa
