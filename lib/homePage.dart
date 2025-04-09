@@ -44,9 +44,7 @@ class _homePageWidget extends State<homePageWidget> {
         // 每次滚动时更新 scrollY 数值
         _scrollY = _scrollController.offset;
       });
-      _scrollY < 40
-          ? _setStatusBarStyle(darkText: false)
-          : _setStatusBarStyle(darkText: true);
+      _scrollY < 40 ? _setStatusBarStyle(darkText: false): _setStatusBarStyle(darkText: true);
       // 打印滚动位置（你也可以在这里做其他逻辑，比如动画、加载更多）
       /* print('滚动位置: $_scrollY px'); */
     });
@@ -64,9 +62,8 @@ class _homePageWidget extends State<homePageWidget> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final Size heights = Size.fromHeight(height * 0.0953);
-    final topInset = MediaQuery.of(context).padding.top;
     double hander = 0.4.sh;
-
+    final paddingTop = MediaQuery.of(context).padding.top;
     return MediaQuery.removePadding(
       removeTop: Platform.isIOS ? false : true,
       context: context,
@@ -83,11 +80,12 @@ class _homePageWidget extends State<homePageWidget> {
                 Stack(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(
-                        top: Platform.isIOS ? -topInset : 0,
+                      
+                      margin: EdgeInsets.only(top: Platform.isIOS ? -paddingTop : 0,
                       ),
                       width: 1.sw,
-                      height: Platform.isIOS ? 0.4.sh + topInset : 0.4.sh,
+                      height: Platform.isIOS ? 0.4.sh+ paddingTop : 0.4.sh,
+                      
                       child: Image.asset(
                         "images/my_header_background_chun.png",
                         fit: BoxFit.cover,
@@ -121,11 +119,7 @@ class _homePageWidget extends State<homePageWidget> {
                       top: 320.h,
                       left: 0.054.sw,
                       child: Container(
-                        padding: EdgeInsets.only(
-                          top: 30.h,
-                          left: 15.h,
-                          right: 15.h,
-                        ),
+                        padding: EdgeInsets.only(top: 30.h,left: 15.h,right: 15.h),
                         width: 0.88.sw,
                         height: 114,
                         decoration: BoxDecoration(
@@ -596,188 +590,185 @@ class _homePageWidget extends State<homePageWidget> {
               ],
             ),
 
-            /* Positioned(
-              top: 50,
-              left: 50,
-              child: Text('当前位置: ${_scrollY.toStringAsFixed(1)} px'),
-            ), */
+        
             Container(
+              
               color: _scrollY < 40 ? Colors.transparent : Colors.white,
-              height: heights.height,
+              height:Platform.isIOS?heights.height+paddingTop: heights.height ,
               child: Container(
-                margin: EdgeInsets.only(),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: height * 0.0422,
-                        left: width * 0.0484,
-                      ),
-                      child: Column(
-                        children: [
-                          ImageIcon(
-                            AssetImage(
-                              "images/top_bar/icon_home_sign_black_500.png",
-                            ),
-                            size: 26,
-                            color: appBarColor,
-                          ),
-                          Text(
-                            "抽奖",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w700,
-                              color: appBarColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: height * 0.035,
-                        left: width * 0.0484,
-                      ),
-                      width: width * 0.45,
-                      height: 33,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color:
-                            _scrollY < 40
-                                ? Colors.black12
-                                : Color.fromRGBO(246, 246, 246, 1),
-                        boxShadow: const [
-                          // 左上角
-                          // 左上角阴影
-                          BoxShadow(
-                            color: Colors.black26,
-                            offset: Offset(1.5, 1.5),
-                            blurRadius: 2,
-                            spreadRadius: 0,
-                            inset: true,
-                          ),
-                          BoxShadow(
-                            color: Colors.white12, // 白色 + 透明
-                            offset: Offset(3.5, 5.5), // 向右下角偏移
-                            blurRadius: 8, // 柔和感
-                            spreadRadius: -5, // 控制扩散宽度（可选）
-                            inset: false, // ✅ 默认就是外阴影
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(width: 8),
-                          ImageIcon(
-                            AssetImage(
-                              "images/top_bar/homepage_searchbar_search_black.png",
-                            ),
-                            size: 16,
-                            color: appBarColor,
-                          ),
-                          SizedBox(width: 8),
-                          SizedBox(
-                            width: width * 0.28,
-                            child: TextCarouselSlider(
-                              messages: ["分期借钱", "热门资讯", "存金通"],
-                              textStyle: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color:
-                                    _scrollY < 40
-                                        ? Colors.white70
-                                        : Colors.grey,
-                              ),
-                            ),
-                          ),
-                          //SizedBox(width: width*0.17),
-                          Expanded(
-                            child: ImageIcon(
-                              AssetImage(
-                                "images/top_bar/ic_assistant_bottom_voice.png",
-                              ),
-                              size: 22,
-                              color: appBarColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: height * 0.0422,
-                        left: width * 0.04,
-                      ),
-                      child: Column(
-                        children: [
-                          ImageIcon(
-                            AssetImage(
-                              "images/top_bar/home_black_switch_icon.png",
-                            ),
-                            size: 26,
-                            color: appBarColor,
-                          ),
-                          Text(
-                            "版本",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w700,
-                              color: appBarColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: height * 0.0422,
-                        left: width * 0.0484,
-                      ),
-                      child: Column(
-                        children: [
-                          ImageIcon(
-                            AssetImage("images/top_bar/online_black_500.png"),
-                            size: 26,
-                            color: appBarColor,
-                          ),
-                          Text(
-                            "客服",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w700,
-                              color: appBarColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: height * 0.0422,
-                        left: width * 0.0484,
-                      ),
-                      child: Column(
-                        children: [
-                          ImageIcon(
-                            AssetImage("images/top_bar/message_black_500.png"),
-                            size: 26,
-                            color: appBarColor,
-                          ),
-                          Text(
-                            "消息",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: appBarColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                margin: EdgeInsets.only(
+                  top: Platform.isIOS?paddingTop:0
                 ),
+                child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: height * 0.0422,
+                      left: width * 0.0484,
+                    ),
+                    child: Column(
+                      children: [
+                        ImageIcon(
+                          AssetImage(
+                            "images/top_bar/icon_home_sign_black_500.png",
+                          ),
+                          size: 26,
+                          color: appBarColor,
+                        ),
+                        Text(
+                          "抽奖",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            color: appBarColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: height * 0.035,
+                      left: width * 0.0484,
+                    ),
+                    width: width * 0.45,
+                    height: 33,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color:
+                          _scrollY < 40
+                              ? Colors.black12
+                              : Color.fromRGBO(246, 246, 246, 1),
+                      boxShadow: const [
+                        // 左上角
+                        // 左上角阴影
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(1.5, 1.5),
+                          blurRadius: 2,
+                          spreadRadius: 0,
+                          inset: true,
+                        ),
+                        BoxShadow(
+                          color: Colors.white12, // 白色 + 透明
+                          offset: Offset(3.5, 5.5), // 向右下角偏移
+                          blurRadius: 8, // 柔和感
+                          spreadRadius: -5, // 控制扩散宽度（可选）
+                          inset: false, // ✅ 默认就是外阴影
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 8),
+                        ImageIcon(
+                          AssetImage(
+                            "images/top_bar/homepage_searchbar_search_black.png",
+                          ),
+                          size: 16,
+                          color: appBarColor,
+                        ),
+                        SizedBox(width: 8),
+                        SizedBox(
+                          width: width * 0.28,
+                          child: TextCarouselSlider(
+                            messages: ["分期借钱", "热门资讯", "存金通"],
+                            textStyle: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color:
+                                  _scrollY < 40 ? Colors.white70 : Colors.grey,
+                            ),
+                          ),
+                        ),
+                        //SizedBox(width: width*0.17),
+                        Expanded(
+                          child: ImageIcon(
+                            AssetImage(
+                              "images/top_bar/ic_assistant_bottom_voice.png",
+                            ),
+                            size: 22,
+                            color: appBarColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: height * 0.0422,
+                      left: width * 0.04,
+                    ),
+                    child: Column(
+                      children: [
+                        ImageIcon(
+                          AssetImage(
+                            "images/top_bar/home_black_switch_icon.png",
+                          ),
+                          size: 26,
+                          color: appBarColor,
+                        ),
+                        Text(
+                          "版本",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            color: appBarColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: height * 0.0422,
+                      left: width * 0.0484,
+                    ),
+                    child: Column(
+                      children: [
+                        ImageIcon(
+                          AssetImage("images/top_bar/online_black_500.png"),
+                          size: 26,
+                          color: appBarColor,
+                        ),
+                        Text(
+                          "客服",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            color: appBarColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: height * 0.0422,
+                      left: width * 0.0484,
+                    ),
+                    child: Column(
+                      children: [
+                        ImageIcon(
+                          AssetImage("images/top_bar/message_black_500.png"),
+                          size: 26,
+                          color: appBarColor,
+                        ),
+                        Text(
+                          "消息",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: appBarColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
+              )
           ],
         ),
       ),
