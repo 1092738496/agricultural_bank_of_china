@@ -2,7 +2,7 @@
     <application
         android:label="中国农业银行"
         android:name="${applicationName}"
-        android:icon="@mipmap/icon_msg">
+        android:icon="@mipmap/icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
