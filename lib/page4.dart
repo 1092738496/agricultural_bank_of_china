@@ -1,3 +1,4 @@
+import 'package:agricultural_bank_of_china/page5.dart';
 import 'package:flutter/material.dart';
 
 class page4_Widget extends StatelessWidget {
@@ -42,9 +43,157 @@ class homed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(247, 247, 247, 1),
-      child: Center(
-        child: Image.asset("images/img/3.png",width: 155,),
+      color: Colors.white,
+      child: Container(
+        child: ListView(
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => page5_Widget()),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "个人租房贷款",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    ImageIcon(
+                      AssetImage("images/icon4/upsdk_icon_arrow_right.png"),
+                      color: Colors.grey[400],
+                      size: 32,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              height: 1,
+              color: Colors.grey[300],
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "合同额度",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "¥500,000.00",
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
+                  ),
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "合同到期日",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "2052-05-11",
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
+                  ),
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "报税信息",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Image(image: AssetImage("images/icon4/i.png"),width: 18,)
+                    ],
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "合同详情",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  ImageIcon(
+                    AssetImage("images/icon4/expand_icon_txsx.png"),
+                    color: Colors.grey[400],
+                    size: 16,
+                  ),
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "合同到期日",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "10545945000073844",
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
+                  ),
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "合同到签订日期",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "2022-05-12",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

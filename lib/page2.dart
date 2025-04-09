@@ -6,7 +6,6 @@ class page2_widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 45,
@@ -83,15 +82,37 @@ class homed extends StatelessWidget {
 
               Positioned(
                 left: 20,
-                top: 40,
+                top: 30,
+                child: Row(
+                  children: [
+                    Text(
+                      "未还本金总计",
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                    SizedBox(width: 10),
+                    Icon(
+                      Icons.remove_red_eye_sharp,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                  ],
+                ),
+              ),
+
+              Positioned(
+                left: 180,
+                bottom: 25,
                 child: Text(
-                  "是的放,松放松的防",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  "元", // 你的文本内容
+                  style: TextStyle(
+                    color: Colors.white, // 设置为链接样式
+                    fontSize: 16,
+                  ),
                 ),
               ),
               Positioned(
                 right: 10,
-                bottom: 20,
+                bottom: 25,
                 child: GestureDetector(
                   onTap: () {
                     // 跳转到目标页面

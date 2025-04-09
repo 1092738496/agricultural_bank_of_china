@@ -10,8 +10,7 @@ class page3_widget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(247, 247, 247, 1),
-        toolbarHeight: 45,
+        backgroundColor: Colors.white,
         /* backgroundColor: Colors.transparent, */
         // ✅ 透明显示灰底
         elevation: 0,
@@ -47,20 +46,34 @@ class homed extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.white,
+      color: Color.fromRGBO(247, 247, 247, 1),
+      
       child: Column(
         children: [
           Container(
-            height: height * 0.312,
-            color: Color.fromRGBO(247, 247, 247, 1),
+            height: height * 0.332,
+            color: Colors.white,
             child: ListView(
               children: [
                 Center(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 10, bottom: 20),
-                    child: Image.asset("images/img/3.png", width: 140),
-                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 30, bottom: 20),
+                        width: 80,
+                        child: Image(
+                          image: AssetImage("images/img/2.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Text("您暂无用款记录",style:TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500
+                      ),)
+                    ],
+                  )
                 ),
+                SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -130,7 +143,7 @@ class homed extends StatelessWidget {
                         children: [
                           Container(
                             margin: EdgeInsets.only(
-                              left: width * 0.18, top: 10),
+                              left: width * 0.16, top: 10),
                             height: 13,
                             width: 1.4,
                             color: Colors.grey[300],
