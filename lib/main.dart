@@ -48,6 +48,7 @@
           return ScrollConfiguration(
             behavior: NoBouncingScrollBehavior(),
             child: MaterialApp(
+              title: "中国农业银行",
               debugShowCheckedModeBanner: false,
               home: home(),
               theme: ThemeData(
