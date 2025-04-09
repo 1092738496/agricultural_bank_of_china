@@ -7,9 +7,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoBouncingScrollBehavior extends ScrollBehavior {
   @override
+  Widget buildViewportChrome(
+    BuildContext context,
+    Widget child,
+    AxisDirection axisDirection,
+  ) {
+    return child;
+  }
+
+  @override
   ScrollPhysics getScrollPhysics(BuildContext context) {
-    // 使用 Android 的 Clamping 行为来禁止 iOS 回弹
-    return const ClampingScrollPhysics();
+    return const ClampingScrollPhysics(); // 吸附滚动（安卓风格）
   }
 }
 

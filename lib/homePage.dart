@@ -77,6 +77,7 @@ class _homePageWidget extends State<homePageWidget> {
         child: Stack(
           children: [
             ListView(
+              physics: const ClampingScrollPhysics(),
               controller: _scrollController,
               children: [
                 Stack(
@@ -595,7 +596,11 @@ class _homePageWidget extends State<homePageWidget> {
             Container(
               color: _scrollY < 40 ? Colors.transparent : Colors.white,
               height: heights.height,
-              child: Row(
+              child: Container(
+                margin: EdgeInsets.only(
+                  
+                ),
+                child: Row(
                 children: [
                   Container(
                     margin: EdgeInsets.only(
@@ -764,6 +769,7 @@ class _homePageWidget extends State<homePageWidget> {
                 ],
               ),
             ),
+              )
           ],
         ),
       ),
