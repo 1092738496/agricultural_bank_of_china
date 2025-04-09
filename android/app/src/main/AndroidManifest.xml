@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="agricultural_bank_of_china"
+        android:label="中国农业银行demo"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/icon_msg">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -594,10 +594,10 @@ class _homePageWidget extends State<homePageWidget> {
             Container(
               
               color: _scrollY < 40 ? Colors.transparent : Colors.white,
-              height:Platform.isIOS?heights.height+20: heights.height ,
+              height:Platform.isIOS?heights.height+15: heights.height ,
               child: Container(
                 margin: EdgeInsets.only(
-                  top: Platform.isIOS?20:0
+                  top: Platform.isIOS?15:0
                 ),
                 child: Row(
                 children: [
