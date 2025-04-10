@@ -1,6 +1,6 @@
 workflows:
-  mobile-unsigned-build:
-    name: Mobile Only (APK + IPA)
+  ios-android-unsigned:
+    name: iOS + Android Unsigned Build
     environment:
       flutter: stable
       xcode: latest
@@ -8,19 +8,22 @@ workflows:
       - name: 获取 Flutter 依赖
         script: flutter pub get
 
+      # ✅ 构建 Android APK
       - name: 构建 Android APK
         script: flutter build apk --release
 
-      - name: 构建 iOS Runner.app（未签名）
-        script: flutter build ios --release --no-codesign
+      # ✅ 构建 iOS 未签名 .app
+      - name: 构建 iOS 应用（未签名）
+        script: |
+          flutter build ios --release --no-codesign
 
-      - name: 打包为 unsigned.ipa（可安装）
+      # ✅ 打包 iOS 未签名 .ipa
+      - name: 创建未签名的 .ipa 文件
         script: |
           mkdir -p Payload
           cp -R build/ios/iphoneos/Runner.app Payload/
           zip -r unsigned.ipa Payload
-          rm -rf Payload build/ios/iphoneos/Runner.app  # ❌ 删除中间产物 .app
 
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
       - unsigned.ipa
+      - build/app/outputs/flutter-apk/app-release.apk

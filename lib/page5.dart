@@ -71,16 +71,39 @@ class homed extends StatelessWidget {
             ),
           ),
 
-          Row(
+          Container(
+            margin: EdgeInsets.only(left: 50,right: 50,top: 30),
+            child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              Column(
+                children: [
+                  Text("0.00",style: TextStyle(
+                    fontSize: 18
+                  ),),
+                  Text(
+                    "总额度(元)",
+                    style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text("0.00", style: TextStyle(fontSize: 18)),
+                  Text(
+                    "已用额度(元)",
+                    style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                  ),
+                ],
+              )
+              /* Container(
                 margin: EdgeInsets.only(top: 30,left: 30,right: 30),
                 child: Image.asset("images/icon4/3.png", width: 90)),
               Container(
                 margin: EdgeInsets.only(top: 30, left: 30, right: 30),
-                child: Image.asset("images/icon4/3.png", width: 90)),
+                child: Image.asset("images/icon4/3.png", width: 90)), */
             ],
+          ),
           ),
 
           Container(

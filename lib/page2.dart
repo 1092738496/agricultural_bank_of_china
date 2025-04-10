@@ -98,9 +98,19 @@ class homed extends StatelessWidget {
                   ],
                 ),
               ),
-
               Positioned(
-                left: 180,
+                left: 120,
+                bottom: 25,
+                child: Text(
+                  "0.00", // 你的文本内容
+                  style: TextStyle(
+                    color: Colors.white, // 设置为链接样式
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 170,
                 bottom: 25,
                 child: Text(
                   "元", // 你的文本内容
