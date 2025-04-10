@@ -8,10 +8,6 @@ workflows:
       - name: 获取 Flutter 依赖
         script: flutter pub get
 
-      # ✅ 构建 Android APK
-      - name: 构建 Android APK
-        script: flutter build apk --release
-
       # ✅ 构建 iOS 未签名 .app
       - name: 构建 iOS 应用（未签名）
         script: |
