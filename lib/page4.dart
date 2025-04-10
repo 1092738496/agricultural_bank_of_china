@@ -64,7 +64,7 @@ class homed extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "个人租房贷款",
+                      "个人住房贷款",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,

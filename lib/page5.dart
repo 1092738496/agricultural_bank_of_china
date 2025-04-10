@@ -78,7 +78,7 @@ class homed extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Text("5000,000.00",style: TextStyle(
+                  Text("500,000.00",style: TextStyle(
                     fontSize: 18
                   ),),
                   Text(
@@ -89,7 +89,7 @@ class homed extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text("5000,000.00", style: TextStyle(fontSize: 18)),
+                  Text("500,000.00", style: TextStyle(fontSize: 18)),
                   Text(
                     "已用额度(元)",
                     style: TextStyle(fontSize: 14, color: Colors.grey[700]),
@@ -157,7 +157,7 @@ class homed extends StatelessWidget {
                   style: TextStyle(fontSize: 16, ),
                 ),
                 Text(
-                  "5000,000.00元",
+                  "500,000.00元",
                   style: TextStyle(fontSize: 16, color: Colors.black54),
                 ),
               ],
